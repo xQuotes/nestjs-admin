@@ -8,6 +8,6 @@ export class TestAuthModule implements NestModule {
         req.isAuthenticated = () => true;
         next();
       })
-      .forRoutes('/admin/?');
+      .forRoutes('/adminUser/?');
   }
 }

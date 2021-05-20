@@ -16,13 +16,13 @@ import { injectionTokens } from '../tokens';
 import { adminUrl } from '../adminCore/admin.filters';
 import { AdminFilter } from './admin.filter';
 
-@Controller('admin')
+@Controller('adminUser')
 @UseFilters(AdminFilter)
 export class AdminAuthController {
   constructor(
     @Inject(injectionTokens.ADMIN_ENVIRONMENT)
     private env: DefaultAdminNunjucksEnvironment,
-  ) {}
+  ) { }
 
   @Get('/login')
   async login(@Req() request: Request) {
@@ -33,7 +33,7 @@ export class AdminAuthController {
   @UseGuards(LoginGuard)
   @Post('/login')
   async adminLogin(@Res() res: any) {
-    res.redirect('/admin');
+    res.redirect('/adminUser');
   }
 
   @Post('/logout')

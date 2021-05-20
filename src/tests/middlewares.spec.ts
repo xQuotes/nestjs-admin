@@ -56,9 +56,9 @@ describe('Middlewares', () => {
       expect(middleware).toHaveBeenCalledTimes(0);
     });
 
-    await request(server).get(`/admin`);
-    await request(server).get(`/admin/`);
-    await request(server).get(`/admin/user`);
+    await request(server).get(`/adminUser`);
+    await request(server).get(`/adminUser/`);
+    await request(server).get(`/adminUser/user`);
 
     middlewares.forEach(middleware => {
       expect(middleware).toHaveBeenCalledTimes(3);

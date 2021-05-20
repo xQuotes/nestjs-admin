@@ -28,7 +28,7 @@ describe('adminSite.register', () => {
   });
 
   it('should set the correct fields to be required', async () => {
-    const res = await request(server).get(`/admin/test/entitywithrequiredfields/add`);
+    const res = await request(server).get(`/adminUser/test/entitywithrequiredfields/add`);
     expect(res.status).toBe(200);
     document.documentElement.innerHTML = res.text;
 

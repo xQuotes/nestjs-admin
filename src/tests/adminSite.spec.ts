@@ -19,11 +19,11 @@ describe('adminSite.register', () => {
     await app.startTest();
 
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin`);
+    const res = await request(server).get(`/adminUser`);
 
     expect(res.status).toBe(200);
     document.documentElement.innerHTML = res.text;
-    expect(document.querySelector('a[href="/admin/test/group"]')).toBeTruthy();
+    expect(document.querySelector('a[href="/adminUser/test/group"]')).toBeTruthy();
 
     await app.stopTest();
     await app.close();
@@ -38,17 +38,17 @@ describe('adminSite.register', () => {
     await app.startTest();
 
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin`);
+    const res = await request(server).get(`/adminUser`);
     expect(res.status).toBe(200);
     document.documentElement.innerHTML = res.text;
-    expect(document.querySelector('a[href="/admin/test/group"]')).toBeTruthy();
+    expect(document.querySelector('a[href="/adminUser/test/group"]')).toBeTruthy();
 
     await app.stopTest();
     await app.close();
   });
 
   it('should throw an error if you try to register neither an Entity or an AdminEntity', async () => {
-    const testingModule = await createTestingModule({ registerEntities: [class {}] });
+    const testingModule = await createTestingModule({ registerEntities: [class { }] });
     expect(
       testingModule.compile().finally(async () => {
         const connection = await getConnection();

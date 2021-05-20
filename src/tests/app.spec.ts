@@ -34,13 +34,13 @@ describe('AppController', () => {
 
     // delete the user via the api call
     const server = app.getHttpServer();
-    const req = await request(server).post(`/admin/test/user/${user.id}/delete`);
+    const req = await request(server).post(`/adminUser/test/user/${user.id}/delete`);
     expect(req.status).toBe(302);
-    expect(req.header.location).toBe(`/admin/test/user`);
+    expect(req.header.location).toBe(`/adminUser/test/user`);
 
     const expectedDisplayName = displayName(user, entityManager.connection.getMetadata(User));
     const res = await request(server)
-      .get(`/admin/test/user`)
+      .get(`/adminUser/test/user`)
       .set('Cookie', req.get('Set-Cookie')[0]);
     expect(res.text).toContain(`Successfully deleted User: ${expectedDisplayName}`);
 

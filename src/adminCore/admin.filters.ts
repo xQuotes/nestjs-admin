@@ -3,15 +3,15 @@ import * as urls from '../utils/urls';
 import { startCase as _startCase } from 'lodash';
 
 type Route =
-  | 'index'
-  | 'changelist'
-  | 'listAction'
-  | 'change'
-  | 'changeAction'
-  | 'add'
-  | 'delete'
-  | 'login'
-  | 'logout';
+  | 'adminUser/index'
+  | 'adminUser/changelist'
+  | 'adminUser/listAction'
+  | 'adminUser/change'
+  | 'adminUser/changeAction'
+  | 'adminUser/add'
+  | 'adminUser/delete'
+  | 'adminUser/login'
+  | 'adminUser/logout';
 type RouteArgs = string[];
 
 export function adminUrl(route: Route, ...args: RouteArgs) {

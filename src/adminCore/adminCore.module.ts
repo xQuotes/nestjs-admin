@@ -65,7 +65,7 @@ export class AdminCoreModuleFactory implements NestModule {
   constructor(
     private readonly adapterHost: HttpAdapterHost,
     @Inject(injectionTokens.APP_CONFIG) private readonly appConfig: AdminAppConfigurationOptions,
-  ) {}
+  ) { }
 
   configure(consumer: MiddlewareConsumer) {
     // @debt TODO "use our own Passport instance when https://github.com/nestjs/passport/issues/26 is fixed"
@@ -77,6 +77,6 @@ export class AdminCoreModuleFactory implements NestModule {
 
     consumer
       .apply(session(this.appConfig.session), passport.initialize(), passport.session(), flash())
-      .forRoutes('/admin/?');
+      .forRoutes('/adminUser/?');
   }
 }

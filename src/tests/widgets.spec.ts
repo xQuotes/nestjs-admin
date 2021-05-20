@@ -27,7 +27,7 @@ describe('widgets', () => {
 
   it('renders all options for an enum', async () => {
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin/test/user/add`);
+    const res = await request(server).get(`/adminUser/test/user/add`);
 
     expect(res.status).toBe(200);
 

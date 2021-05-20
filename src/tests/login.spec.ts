@@ -33,19 +33,19 @@ describe('login', () => {
   });
 
   it('redirects to login when unauthenticated', async () => {
-    const res = await request(server).get(`/admin/user/user`);
+    const res = await request(server).get(`/adminUser/user/user`);
     expect(res.status).toBe(302);
-    expect(res.header.location).toBe(`/admin/login`);
+    expect(res.header.location).toBe(`/adminUser/login`);
   });
 
   it('returns 302 when unauthenticated using POST', async () => {
-    const res = await request(server).post(`/admin/user/user/add`);
+    const res = await request(server).post(`/adminUser/user/user/add`);
     expect(res.status).toBe(302);
-    expect(res.header.location).toBe(`/admin/login`);
+    expect(res.header.location).toBe(`/adminUser/login`);
   });
 
   it('renders a login page', async () => {
-    const res = await request(server).get(`/admin/login`);
+    const res = await request(server).get(`/adminUser/login`);
 
     expect(res.status).toBe(200);
 
@@ -70,9 +70,9 @@ describe('login', () => {
     expect(await entityManager.findOneOrFail(AdminUser, admin.id)).toBeDefined();
 
     const res = await request(server)
-      .post(`/admin/login`)
+      .post(`/adminUser/login`)
       .send({ username: adminData.username, password });
     expect(res.status).toBe(302);
-    expect(res.header.location).toBe(`/admin`);
+    expect(res.header.location).toBe(`/adminUser`);
   });
 });

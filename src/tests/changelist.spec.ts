@@ -61,7 +61,7 @@ describe('changelist', () => {
 
   it('can show the columns defined in listDisplay', async () => {
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin/test/user`);
+    const res = await request(server).get(`/adminUser/test/user`);
 
     expect(res.status).toBe(200);
 
@@ -74,7 +74,7 @@ describe('changelist', () => {
 
   it('does not show a table when listDisplay is not defined', async () => {
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin/test/agency`);
+    const res = await request(server).get(`/adminUser/test/agency`);
 
     expect(res.status).toBe(200);
 
@@ -84,7 +84,7 @@ describe('changelist', () => {
 
   it('renders a search box when searchFields is defined', async () => {
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin/test/user`);
+    const res = await request(server).get(`/adminUser/test/user`);
 
     expect(res.status).toBe(200);
 
@@ -94,7 +94,7 @@ describe('changelist', () => {
 
   it('does not render a search box when searchFields is undefined', async () => {
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin/test/agency`);
+    const res = await request(server).get(`/adminUser/test/agency`);
     expect(res.status).toBe(200);
 
     document.documentElement.innerHTML = res.text;
@@ -110,7 +110,7 @@ describe('changelist', () => {
     const entityManager: EntityManager = app.get(getEntityManagerToken());
     await entityManager.save(user);
 
-    const res = await request(server).get(`/admin/test/user`);
+    const res = await request(server).get(`/adminUser/test/user`);
 
     expect(res.status).toBe(200);
 
@@ -126,7 +126,7 @@ describe('changelist', () => {
 
   it('shows the correct user with a 1 word search term', async () => {
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin/test/user?search=John`);
+    const res = await request(server).get(`/adminUser/test/user?search=John`);
     expect(res.status).toBe(200);
     document.documentElement.innerHTML = res.text;
 
@@ -141,7 +141,7 @@ describe('changelist', () => {
 
   it('shows the correct user with a 2 word search term', async () => {
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin/test/user?search=Jane+Doe`);
+    const res = await request(server).get(`/adminUser/test/user?search=Jane+Doe`);
     expect(res.status).toBe(200);
     document.documentElement.innerHTML = res.text;
 
@@ -156,7 +156,7 @@ describe('changelist', () => {
 
   it('shows the correct users with a 2 word search term', async () => {
     const server = app.getHttpServer();
-    const res = await request(server).get(`/admin/test/user?search=J+o`);
+    const res = await request(server).get(`/adminUser/test/user?search=J+o`);
     expect(res.status).toBe(200);
     document.documentElement.innerHTML = res.text;
 
