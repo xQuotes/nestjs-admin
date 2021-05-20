@@ -39,7 +39,7 @@ type AdminModelsResult = {
   entity: object;
 };
 
-@Controller('admin')
+@Controller('adminUser')
 @UseGuards(AdminGuard)
 @UseFilters(AdminFilter)
 export class DefaultAdminController {
@@ -49,7 +49,7 @@ export class DefaultAdminController {
     @Inject(injectionTokens.ADMIN_ENVIRONMENT)
     private env: DefaultAdminNunjucksEnvironment,
     private entityManager: EntityManager,
-  ) {}
+  ) { }
 
   async getEntityWithRelations(adminEntity: AdminEntity, primaryKey: any) {
     const metadata = adminEntity.metadata;

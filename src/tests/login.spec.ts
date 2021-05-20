@@ -6,7 +6,7 @@ import AdminUser from '../adminUser/adminUser.entity';
 import { createAndStartTestApp, TestApplication } from './utils/testApp';
 import { AdminUserModule } from '../adminUser/adminUser.module';
 
-describe('login', () => {
+describe('adminUser/login', () => {
   let app: TestApplication;
   let document: Document;
   let server: any;

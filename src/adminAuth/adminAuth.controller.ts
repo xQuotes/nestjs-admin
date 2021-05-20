@@ -39,6 +39,6 @@ export class AdminAuthController {
   @Post('/logout')
   async logout(@Req() req: any, @Res() res: any) {
     req.logout();
-    res.redirect(adminUrl('login'));
+    res.redirect(adminUrl('adminUser/login'));
   }
 }

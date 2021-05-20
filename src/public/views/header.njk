@@ -3,7 +3,7 @@
     {{ adminSite.siteHeader }}
   </a>
   {% if request.user %}
-    <form action="{{ 'logout'|adminUrl }}" method="POST">
+    <form action="{{ 'adminUser/logout'|adminUrl }}" method="POST">
       <button type="submit" class="admin-header__logout">Logout</button>
     </form>
   {% endif %}
