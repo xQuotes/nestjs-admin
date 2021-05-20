@@ -16,23 +16,23 @@ type RouteArgs = string[];
 
 export function adminUrl(route: Route, ...args: RouteArgs) {
   switch (route) {
-    case 'login':
+    case 'adminUser/login':
       return urls.loginUrl();
-    case 'index':
+    case 'adminUser/index':
       return urls.indexUrl();
-    case 'changelist':
+    case 'adminUser/changelist':
       return urls.changeListUrl(...(args as [any, any]));
-    case 'listAction':
+    case 'adminUser/listAction':
       return urls.listActionUrl(...(args as [any, any]));
-    case 'change':
+    case 'adminUser/change':
       return urls.changeUrl(...(args as [any, any, any]));
-    case 'changeAction':
+    case 'adminUser/changeAction':
       return urls.changeActionUrl(...(args as [any, any, any]));
-    case 'add':
+    case 'adminUser/add':
       return urls.addUrl(...(args as [any, any]));
-    case 'delete':
+    case 'adminUser/delete':
       return urls.deleteUrl(...(args as [any, any, any]));
-    case 'logout':
+    case 'adminUser/logout':
       return urls.logoutUrl();
     default:
       const guard: never = route;
